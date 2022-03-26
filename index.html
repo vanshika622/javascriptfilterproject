@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <title>Filter Project</title>
+  </head>
+
+  <body>
+    <div class="modal_parent" id="modal_parent">
+      <div class="modal">
+        <div class="modal_img">
+          <img
+            id="superhero_image"
+            src=""
+            alt=""
+          />
+        </div>
+        <div class="modal_details">
+          <div style="padding: 20px">
+
+            <div style="display: flex; justify-content: space-between;">
+              <h1 id="superhero_name"></h1>
+           <button class="btn" onclick="closeModal()">Close</button>
+            </div>
+           
+            <div class="appearence detail">
+              <p class="detail_title">Appearence</p>
+              <div class="details">
+                <div>
+                  <p class="property">Gender</p>
+                  <p id="superhero_gender" class="value"></p>
+                </div>
+                  <div>
+                    <p class="property">Height</p>
+                    <p id="superhero_height" class="value"></p>
+                  </div>
+                  <div>
+                    <p class="property">Weight</p>
+                    <p id="superhero_weight" class="value"></p>
+                  </div>
+                  <div>
+                    <p class="property">Eye color:</p>
+                    <p id="superhero_eyecolor" class="value"></p>
+                  </div>
+                  <div>
+                    <p class="property">Hair color</p>
+                    <p id="superhero_haircolor" class="value">black</p>
+                  </div>
+                  <!-- <div>hair color : black</div> -->
+                
+              </div>
+            </div>
+            <div class="biography detail">
+              <p class="detail_title">Biography</p>
+              <div class="details">
+                <div>
+                  <p class="property">fullname</p>
+                  <p id="superhero_fullname" class="value"></p>
+                </div>
+                <div>
+                  <p class="property">Alter Ego</p>
+                  <p id="superhero_ego" class="value"> </p>
+                </div>
+                <div>
+                  <p class="property">First Appearence</p>
+                  <p id="superhero_firstAppearence" class="value">
+                    
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="connection detail">
+              <p class="detail_title">Connections</p>
+              <div class="details">
+                <div>
+                  <p class="property">Group Affiliation</p>
+                  <p id="superhero_GroupAffliation" class="value">
+                   
+                  </p>
+                </div>
+                <div>
+                  <p class="property">Relatives</p>
+                  <p id="superhero_relative" class="value">
+                   
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="Powerstats detail">
+              <p class="detail_title">Connections</p>
+              <div class="details">
+                <div>
+                  <p class="property">Intelligence</p>
+                  <div class="power_bg">
+                    <div
+                      class="power_fg"
+                      style="background-color: skyblue"
+                      id="superhero_intelligence"
+                    ></div>
+                  </div>
+                </div>
+                <div>
+                  <p class="property">Speed</p>
+                  <div class="power_bg">
+                    <div
+                      class="power_fg"
+                      style="background-color: skyblue"
+                      id="superhero_speed"
+                    ></div>
+                  </div>
+                </div>
+                <div>
+                  <p class="property">Durability</p>
+                  <div class="power_bg">
+                    <div
+                      class="power_fg"
+                      style="background-color: skyblue"
+                      id="superhero_durability"
+                    ></div>
+                  </div>
+                </div>
+                <div>
+                  <p class="property">Power</p>
+                  <div class="power_bg">
+                    <div
+                      class="power_fg"
+                      style=" background-color: skyblue"
+                      id="superhero_power"
+                    ></div>
+                  </div>
+                </div>
+                <div>
+                  <p class="property">Combat</p>
+                  <div class="power_bg">
+                    <div
+                      class="power_fg"
+                      style="background-color: skyblue"
+                      id="superhero_combat"
+                    ></div>
+                  </div>
+                </div>
+                <div>
+                  <p class="property">Strength</p>
+                  <div class="power_bg">
+                    <div
+                      class="power_fg"
+                      style=" background-color: skyblue" id="superhero_strength"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="main">
+      <div class="container">
+        <form id="filter_form">
+          <div class="filters">
+            <input
+              type="text"
+              placeholder="Search By Name"
+              class="filter_name_field"
+              onkeyup="applyNamefilter('name',this.value)"
+            />
+          </div>
+          <div class="filters">
+            <div class="filter_fields">
+              <div class="feild_container">
+                <p>Select publisher</p>
+                <select
+                  name=""
+                  class="filter_field"
+                  onchange="selectfilter('gender',this.value)"
+                >
+                  <option>Select Gender</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="others">Others</option>
+                </select>
+              </div>
+              <div class="feild_container">
+                <p>Select publisher</p>
+                <select
+                  name=""
+                  class="filter_field"
+                  onchange="selectfilter('publisher',this.value)"
+                  id="publisherfilter"
+                >
+                  <option value="">Select Publisher</option>
+                </select>
+              </div>
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-evenly;
+                "
+              >
+                <div class="feild_container">
+                  <!-- <p style="font-size: 15px">Minimum Weight</p> -->
+                  <label style="font-size: 15px;">Minimum Weight</label>
+
+                  <input
+                    type="number"
+                    name=""
+                    class="filter_field"
+                    value="0"
+                    onkeypress="selectfilter('minweight',this.value)"
+                    onchange="selectfilter('minweight',this.value)"
+                  />
+                </div>
+                <div class="feild_container">
+                  <label style="font-size: 15px;">Maximum  Weight</label>
+
+                  <input
+                    type="number"
+                    name=""
+                    class="filter_field"
+                    onkeypress="selectfilter('maxweight',this.value)"
+                    onchange="selectfilter('maxweight',this.value)"
+                  />
+                </div>
+              </div>
+
+              <div class="filter_fields" style="margin-top: 20px;">
+                <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  justify-content: flex-start;
+                  width: 33%;
+                  gap: 30px;
+                "
+              >
+                <div class="feild_container">
+                  <!-- <p style="font-size: 15px">Minimum Weight</p> -->
+                  <label style="font-size: 15px;">Minimum Intelligence</label>
+
+                  <input
+                    type="number"
+                    name=""
+                    class="filter_field"
+                    value="0"
+                    onkeypress="selectfilter('minintelligence',this.value)"
+                    onchange="selectfilter('minintelligence',this.value)"
+                  />
+                </div>
+                <div class="feild_container">
+                  <label style="font-size: 15px;">Maximum  Intelligence</label>
+
+                  <input
+                    type="number"
+                    name=""
+                    class="filter_field"
+                    onkeypress="selectfilter('maxintelligence',this.value)"
+                    onchange="selectfilter('maxintelligence',this.value)"
+                  />
+                </div>
+              </div>
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  justify-content: flex-start;
+                  gap: 30px;
+                  width: 33%
+                "
+              >
+                <div class="feild_container">
+                  <!-- <p style="font-size: 15px">Minimum Weight</p> -->
+                  <label style="font-size: 15px;">Minimum speed</label>
+
+                  <input
+                    type="number"
+                    name=""
+                    class="filter_field"
+                    value="0"
+                    onkeypress="selectfilter('minspeed',this.value)"
+                    onchange="selectfilter('minspeed',this.value)"
+                  />
+                </div>
+                <div class="feild_container">
+                  <label style="font-size: 15px;">Maximum  speed</label>
+
+                  <input
+                    type="number"
+                    name=""
+                    class="filter_field"
+                    onkeypress="selectfilter('maxspeed',this.value)"
+                    onchange="selectfilter('maxspeed',this.value)"
+                  />
+                </div>
+              </div>
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  justify-content: flex-start;
+                  gap: 30px;
+                  width: 33%
+                "
+              >
+                <div class="feild_container">
+                  <!-- <p style="font-size: 15px">Minimum Weight</p> -->
+                  <label style="font-size: 15px;">Minimum Durability</label>
+
+                  <input
+                    type="number"
+                    name=""
+                    class="filter_field"
+                    value="0"
+                    onkeypress="selectfilter('mindurability',this.value)"
+                    onchange="selectfilter('mindurability',this.value)"
+                  />
+                </div>
+                <div class="feild_container">
+                  <label style="font-size: 15px;">Maximum  Durability</label>
+
+                  <input
+                    type="number"
+                    name=""
+                    class="filter_field"
+                    onkeypress="selectfilter('maxdurability',this.value)"
+                    onchange="selectfilter('maxdurability',this.value)"
+                  />
+                </div>
+              </div>
+              <div
+              style="
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 30px;
+                width: 33%
+              "
+            >
+              <div class="feild_container">
+                <!-- <p style="font-size: 15px">Minimum Weight</p> -->
+                <label style="font-size: 15px;">Minimum Power</label>
+
+                <input
+                  type="number"
+                  name=""
+                  class="filter_field"
+                  value="0"
+                  onkeypress="selectfilter('minpower',this.value)"
+                  onchange="selectfilter('minpower',this.value)"
+                />
+              </div>
+              <div class="feild_container">
+                <label style="font-size: 15px;">Maximum  Power</label>
+
+                <input
+                  type="number"
+                  name=""
+                  class="filter_field"
+                  onkeypress="selectfilter('maxpower',this.value)"
+                  onchange="selectfilter('maxpower',this.value)"
+                />
+              </div>
+            </div>
+            <div
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: flex-start;
+              gap: 30px;
+              width: 33%
+            "
+          >
+            <div class="feild_container">
+              <!-- <p style="font-size: 15px">Minimum Weight</p> -->
+              <label style="font-size: 15px;">Minimum combat</label>
+
+              <input
+                type="number"
+                name=""
+                class="filter_field"
+                value="0"
+                onkeypress="selectfilter('mincombat',this.value)"
+                onchange="selectfilter('mincombat',this.value)"
+              />
+            </div>
+            <div class="feild_container">
+              <label style="font-size: 15px;">Maximum  combat</label>
+
+              <input
+                type="number"
+                name=""
+                class="filter_field"
+                onkeypress="selectfilter('maxcombat',this.value)"
+                onchange="selectfilter('maxcombat',this.value)"
+              />
+            </div>
+          </div>
+          <div
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 30px;
+            width: 33%
+          "
+        >
+          <div class="feild_container">
+            <!-- <p style="font-size: 15px">Minimum Weight</p> -->
+            <label style="font-size: 15px;">Minimum Strength</label>
+
+            <input
+              type="number"
+              name=""
+              class="filter_field"
+              value="0"
+              onkeypress="selectfilter('minstrength',this.value)"
+              onchange="selectfilter('minstrength',this.value)"
+            />
+          </div>
+          <div class="feild_container">
+            <label style="font-size: 15px;">Maximum  Strength</label>
+
+            <input
+              type="number"
+              name=""
+              class="filter_field"
+              onkeypress="selectfilter('maxstrength',this.value)"
+              onchange="selectfilter('maxstrength',this.value)"
+            />
+          </div>
+        </div>
+              </div>
+             
+              
+            </div>
+            <div>
+              <button class="btn" type="button" onclick="applyfilter()">
+                Apply Filter
+              </button>
+              <button class="btn" type="button" onclick="cancelfilter()">
+                Cancel Filter
+              </button>
+            </div>
+            
+<!--   sorting part -->
+            <div
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: space-evenly;
+             width: 40%;
+             gap: 10px;
+             margin-top: 30px;"
+             
+          >
+            <div class="feild_container"  style="width: 60%;">
+              <label >Select Sorting Property</label>
+              <select  class="filter_field" id="sortProperty" onchange="sorting()">
+                <option value="">Select Property</option>
+                <option value="intelligence">intelligence</option> 
+                <option value="speed">speed</option> 
+                <option value="power">power</option> 
+                <option value="combat">combat</option> 
+                <option value="strength">strength</option>
+                 <option value="durability">durability</option>
+              </select>
+            </div>
+            <div class="feild_container" style="width: 60%;">
+              <label for="">Select Sorting Type</label>
+              <select  class="filter_field" onchange="sorting()"id="sortTypeproperty">
+                    <option value="">Select sort type</option>
+                    <option value="asc">Ascending</option>
+                    <option value="desc">Descending</option>
+              </select>
+
+              
+            </div>
+          </div>
+          </div>
+        </form>
+        <h1>All Superheros (<span id="count">0</span> Found)</h1>
+        <div class="superheros" id="superheros"></div>
+      </div>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>
